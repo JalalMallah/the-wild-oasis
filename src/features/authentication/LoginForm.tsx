@@ -31,6 +31,10 @@ function LoginForm() {
 		reset,
 	} = useForm<FormValues>({
 		resolver: zodResolver(schema),
+		defaultValues: {
+			email: import.meta.env.VITE_DEFAULT_EMAIL,
+			password: import.meta.env.VITE_DEFAULT_PASSWORD,
+		},
 	});
 
 	const { isPendingLogin, logIn } = useLogIn();
